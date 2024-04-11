@@ -1,10 +1,10 @@
 from selenium.webdriver.common.by import By
 
 
-class InventoryLocators():
+class InventoryLocators:
 
     @staticmethod
-    def item_name(product_name: str) -> tuple:
+    def item_name(product_name: str) -> str:
         return f"//div[text() ='{product_name}']"
 
     @staticmethod
