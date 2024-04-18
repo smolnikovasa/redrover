@@ -22,3 +22,7 @@ class BasePage:
 
     def get_text_element(self, locator) -> str:
         return self.get_element(locator).text
+
+    def element_is_displaid(self, element):
+        return element.is_displayed()
+
