@@ -1,15 +1,19 @@
+import allure
+
 from page.auth.auth_page import AuthPage
 from src.assert_msg import AssertMsg
 from src.urls import Urls
 from src.user_names import UserNames
 
 
+@allure.suite("Авторизация пользователей")
 class TestLogin:
     urls = Urls()
     assert_massage = AssertMsg()
     user_names = UserNames()
 
     # Авторизация, используя корректные данные (standard_user, secret_sauce)
+    @allure.title("Успешная авторизация")
     def test_auth_01(self, driver):
         auth_page = AuthPage(driver)
         auth_page.open_page(self.urls.URL_BASE)
@@ -17,6 +21,7 @@ class TestLogin:
         assert driver.current_url == self.urls.URL_CATALOG, self.assert_massage.ASSERT_MASSAGE_INVALID_URL
 
     # Авторизация, используя некорректные данные (user, user)
+    @allure.title("Авторизация, используя некорректные данные")
     def test_auth_02(self, driver):
         auth_page = AuthPage(driver)
         auth_page.open_page(self.urls.URL_BASE)

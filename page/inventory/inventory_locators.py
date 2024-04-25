@@ -9,7 +9,7 @@ class InventoryLocators:
 
     @staticmethod
     def text_item_name(product_name: str) -> tuple:
-        return By.XPATH, InventoryLocators().item_name(product_name)
+        return (By.XPATH, InventoryLocators().item_name(product_name))
 
     @staticmethod
     def button_add_to_cart(product_name: str) -> tuple:
@@ -27,3 +27,4 @@ class InventoryLocators:
         )
 
     SPAN_COUNT_PRODUCTS_IN_CART = (By.XPATH, "//span[@class='shopping_cart_badge']")
+    CART_IMG = (By.CSS_SELECTOR, "a[data-test='shopping-cart-link']")
